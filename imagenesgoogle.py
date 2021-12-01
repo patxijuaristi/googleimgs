@@ -9,9 +9,14 @@ from tkinter import Tk, Frame, Text, Scrollbar, Label, Button, filedialog, \
 from tkinter.constants import END
 from threading import Thread
 import utils
+import webbrowser
+from selenium import webdriver
+from webdriver_manager.chrome import ChromeDriverManager
 
 from google_images_scraper import GoogleImagesScraper
 
+initChrome = webdriver.Chrome(ChromeDriverManager().install())
+initChrome.quit()
 
 raiz = Tk()
 icono = PhotoImage(file = utils.resource_path("imagenes-icono.png"))
@@ -186,5 +191,13 @@ botonDir=Button(ficheroFrame, text="Folder", command=establecerDirectorio, bg='w
 
 botonBuscar=Button(miFrame, text="Download", command=empezarScraping, bg='red', fg='white', font=('Arial', 14 ))
 botonBuscar.grid(row=5, column=0, columnspan=5, pady=(15,15))
+
+def abrirWeb(url):
+   webbrowser.open_new_tab(url)
+
+link = Label(raiz, text="JuarisTech.com",font=('Helveticabold', 12), fg="blue", cursor="hand2")
+link.pack(side='right')
+link.bind("<Button-1>", lambda e:
+abrirWeb("https://juaristech.com"))
 
 raiz.mainloop()

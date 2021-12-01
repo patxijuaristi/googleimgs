@@ -1,4 +1,0 @@
-cookies=//*[@id="L2AGLb"]
-linkXpath=//*[@id="islrg"]/div[1]/div[CONTIMG]/a[1]
-imgXpath=//*[@id="Sva75c"]/div/div/div[3]/div[2]/c-wiz/div/div[1]/div[1]/div[2]/div[1]/a/img
-masImg=//*[@id="Sva75c"]/div/div/div[3]/div[2]/c-wiz/div/div[1]/div[1]/div[2]/div/a/img
