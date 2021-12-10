@@ -159,6 +159,11 @@ def empezarScraping():
     
     if(directorioPath.get() != ''):
         if(validateNumber() != False):
+            existingFiles = utils.readFolderFiles(directorioPath.get())
+            for fi in existingFiles:
+                kwExisting = fi[0:len(fi)-4].replace('-',' ')
+                if(kwExisting in kwList):
+                    kwList.remove(kwExisting)
             hilos = 5
             divididos = split_list(kwList, hilos)
             

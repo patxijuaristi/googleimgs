@@ -1,5 +1,7 @@
 import sys
 import os
+from os import listdir
+from os.path import isfile, join
 
 def resource_path(relative_path):
     """ To get resources path for creating the .exe with PyInstaller """
@@ -9,3 +11,7 @@ def resource_path(relative_path):
         base_path = os.path.abspath(".")
 
     return os.path.join(base_path, relative_path)
+
+def readFolderFiles(rutaFicheros):
+    onlyfiles = [f for f in listdir(rutaFicheros) if isfile(join(rutaFicheros, f))]
+    return onlyfiles
