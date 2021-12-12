@@ -12,6 +12,7 @@ from svglib.svglib import svg2rlg
 from reportlab.graphics import renderPM
 
 from requisitos import Requisitos
+from utils import convertirKwEnFilename
 
 class GoogleImagesScraper:
 
@@ -67,9 +68,9 @@ class GoogleImagesScraper:
                     img = self.driver.find_element_by_xpath(xpathImg)
                     src = img.get_attribute('src')
                     if(cantidad != 1):
-                        nombreFichero = kw.replace(' ','-')+'-'+str(nImgNombre)
+                        nombreFichero = convertirKwEnFilename(kw)+'-'+str(nImgNombre)
                     else:
-                        nombreFichero = kw.replace(' ','-')
+                        nombreFichero = convertirKwEnFilename(kw)
                     if('.svg' in src):
                         urllib.request.urlretrieve(src, "./temp.svg")
                         drawing = svg2rlg("./temp.svg")
